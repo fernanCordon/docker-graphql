@@ -13,6 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    # 12 Pongo el nombre a este primer paso (lo que hará es coger lo que está en el repo)
+    - name: Checkout code
+      uses: actions/checkout@v3
+      # 13 Que revise en profundidad todos los commits
+      with:
+        fetch-depth: 0
+      
+    # 11 Comento este paso
+    # - name: Build the Docker image
+    #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
