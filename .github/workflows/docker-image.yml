@@ -19,7 +19,32 @@ jobs:
       # 13 Que revise en profundidad todos los commits
       with:
         fetch-depth: 0
+
+    # 18 Segundo paso
+    - name: Docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      # 19 Las | dice que cada una de las siguientes lineas es lo que ejecutaré en la consola
+      # Por ahora solamente voy a comprobar la autenticación
+      run: |
+        echo "Iniciando login"
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        echo "Fin del login"
+
       
     # 11 Comento este paso
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+
+# 14 Me tengo que autenticar de dockerhub (se me ha olvidado guardar el tocken así que lo voy a volver a hacer )
+# 15 Dokerhub, en mi usuario de docker | Account Setting | Security | New Access Token - Escribo cualquier cosa "Prueba" - Access permission Read-only - click en Generate
+# dckr_pat_86ZK0PCyNxACNev4Q3LgV3tutEo
+
+# 16 Voy a cambiarla en Github | Setting | Security | Secret and variables | actions | Edito DOCKER_PASSWORD y pego el nuevo token dckr_pat_86ZK0PCyNxACNev4Q3LgV3tutEo
+
+# 17 Me logeo en Dockerhub 
+# docker login -u anguiano -p dckr_pat_86ZK0PCyNxACNev4Q3LgV3tutEo
+
+# 20 Hago el commit (desde Github Start Commit "Login step in place" Commit changed)
+# Si lo estoy haciendo en local hago el commit y push
