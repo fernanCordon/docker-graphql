@@ -1,3 +1,22 @@
+<!-- 1 Descargo el proyecto graphql-actions -->
+<!-- 2 cd Carpeta graphql-actions -->
+<!-- 3 yarn -->
+<!-- 4 yarn start:dev -->
+<!-- 5 Navegador: localhost:3000/graphql - click en Query your server -->
+<!-- 6 En Operation escribo: Y luego RUN
+  {
+    hello
+    todos {
+      description
+    }
+  } -->
+ <!-- 7 CTRL+C Ya hemos visto que la app funciona -->
+ <!-- 8 Borro node_modules y carpeta dist -->
+ <!-- 9 Reviso el Dockerfile (Ya conocemos que es lo que hace) -->
+
+<!-- 10 Nuestro propósito será que mediante un comando de git disparemos el proceso de construcción de la imagen, además quiero que la lleve a dockerhub y que maneje el versionamiento -->
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
