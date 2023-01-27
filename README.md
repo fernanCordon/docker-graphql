@@ -1,7 +1,3 @@
-<!-- 1 Voy a actions y veo la última acción que está con el nombre del último commit -->
-<!-- 2 Clicko el él - Y clicko en build: Veo los pasos Checkou code y Docker login-->
-<!-- 3 Entro en Docker login para ver los logs puesto que ahí estarán los echos que puse -->
-
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>

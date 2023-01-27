@@ -22,19 +22,14 @@ jobs:
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      # 4 He quitado ya los echos
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-    # 5 Tercer paso: construir la imagen
     - name: Build Docker Image
-      # 6 Comando de construir la imagen. Ahora he incrementado el tag a 0.0.2
       run: |
         docker build -t anguiano/docker-graphql:0.0.2 .
 
-    # 7 Cuarto paso: Hacer el push
     - name: Push Docker Image
       run: |
         docker push anguiano/docker-graphql:0.0.2
     
-# 8 Hago un commit "Build and Push" en Start commit de Github (O en local y luego lo subo)
