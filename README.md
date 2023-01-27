@@ -1,50 +1,16 @@
-<!-- 1 Para que en este repo público nadie pueda hacer determinadas cosas configuraremos las credenciales: Vamos a settings | secrets | Click en Actions y crearé un par de repository secrets. Son como variables ocultas que nadie puede ver (de hecho, después de crearla ya no la podremos ver más) -->
+<!-- 1 desde DD borro todas las imágenes y contenedores -->
+<!-- 2 docker build -t anguiano/docker-graphql:0.0.1 . -->
+<!-- 3 docker image ls -->
+<!-- 4 docker container run -p 3000:3000 anguiano/docker-graphql:0.0.1  -->
+<!-- 5 Navegador - loclahost:3000/graphql | click en Query your server | run OK -->
+<!-- 6 CTRL+C Si no se puede cerrar abro otra shell -->
+<!-- 7 docker container ls  -->
+<!-- 8 docker container rm -f 5fd -->
 
-<!-- 2 Click en New repository secret - Name: DOCKER_USER y Secret: anguiano (usuario de docker) | Click Add secret. Una vez creado puedo reemplazarlo pero no lo puedo ver -->
+<!-- 9 Este build que acabamos de hacer aquí en nuestra máquina es lo que quiero que haga Github en sus servidores -->
+<!-- 10 Voy a Github a editar el archivo docker-image.yml | clicko en el lápiz -->
 
-<!-- 3 Crearé un token de acceso en dockerhub:  Icono de mi usuario / Account Setting / Security / Click en New Access Token y escribo "Github-Actions". En las opciones de Access permissions selecciono Read & Write | Click en Generar-->
 
-<!-- 4 Una vez que copie el token ya no lo podré ver más -->
-
-<!-- 5 Voy a Github...: Click en New repository secret  - Name: DOCKER_PASSWORD y Secret: PEGO EL TOKEN | Click Add secret  -->
-
-<!-- 6 Voy a Dokerhub y creo un Repositorio privado (solo puedo hacer uno): Name: docker-graphql - Create -->
-
-<!-- 7 Voy a Github | Actions | Docker Image (Hay varios así que compruebo que ponga "Build a Docker image to deploy, or push to a registry"). Click en Configurar - Veo que me crea un archivo docker-image.yml cuya ruta es docker-graphql/.github/worflows/ -->
-
-<!-- 8 Reviso el ARCHIVO docker-image.yml DE GITHUB ACTIONS
-
-// Este nombre lo podría cambiar
-name: Docker Image CI
-
-// Son los triggers en los que quiero que se dispare esta acción
-on:
-  // Quiero que se dispare la acción cada vez que hago un push a la rama main
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-// El trabajo que queremos hacer
-jobs:
-
-  build:
-    // Va a correr en un ubuntu (como alpine)
-    runs-on: ubuntu-latest
-
-    steps:
-    // Esto es un repositorio en github que ya viene con ciertos procedimientos
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      // Hemos entrado en ese ubunto y ejecutamos el comando de construcción
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
- -->
-
-<!-- 9 En Github Click en Start commit (no hace falta poner nombre) | Click en Commit new file y puedo ver en en repo de github una carpeta .github/workflows -->
-
-<!-- 10 clicko en Actions y veo que está intentando hacer esa acción, que no funciona. -->
-
-<!-- 11 desde los tres puntitos de su dcha la cancelo -->
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
