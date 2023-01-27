@@ -34,7 +34,7 @@ jobs:
         major_pattern: "major:"
         # 6 Cuando haga un commit con este nombre "feat: Una nueva opción agregada" 
         # Pondrá un tag en el que cambia el 2º número 0.1.0-prerelease0
-        minor_pattern: "feat:" 
+        minor_pattern: "minor:" 
         format: "${major}.${minor}.${patch}-prerelease${increment}"
       # 7 Con este id puedo hacer referencia al producto de este paso 
       id: version
