@@ -26,10 +26,16 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
     - name: Build Docker Image
+      # 2 Para renombrar la rama a latest hago un segundo build con el tag latest (El 2º build usa el caché)
       run: |
+        docker build -t anguiano/docker-graphql:0.0.2 .
         docker build -t anguiano/docker-graphql:0.0.2 .
 
     - name: Push Docker Image
+      # 1 Para renombrar la rama a latest hago un segundo push con el tag latest
       run: |
         docker push anguiano/docker-graphql:0.0.2
+        docker push anguiano/docker-graphql:latest
+
+# 3 Hago un commit "Renombrar a latest" del cambio y se subirán a dockerhub
     
