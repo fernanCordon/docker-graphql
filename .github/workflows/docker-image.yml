@@ -12,11 +12,34 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # 1 Ahora vemos una imagen con el tag 0.0.2 y otra con latest que tienen el mismo id
+
+    # 2 Git Semantic Version: https://github.com/marketplace/actions/git-semantic-version?version=v4.0.3 
+    # Ahora quiero que el versionamiento sea automático: Trabajaremos con la version 4.0.3
+
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
+
+    # 3 Copio de la Doc y lo pego aquí
+    - name: Git Semantic Version
+      uses: PaulHatch/semantic-version@v4.0.3
+      # 4 Añado para hacer algunas configuraciones
+      with:
+        # 5 Cuando haga un commit con este nombre "major: Una nueva versión totalmente nueva" 
+        # Pondrá un tag en el que cambia el 1º número 1.0.0-prerelease0
+        major_pattern: "major:"
+        # 6 Cuando haga un commit con este nombre "feat: Una nueva opción agregada" 
+        # Pondrá un tag en el que cambia el 2º número 0.1.0-prerelease0
+        minor_pattern: "feat:" 
+        format: "${major}.${minor}.${patch}-prerelease${increment}"
+      # 7 Con este id puedo hacer referencia al producto de este paso 
+      id: version
+
+      # 8 Si hago cualquier commit pondrá un tag en el que cambia el número que está en el prerelease 0.0.2-prerelease
 
     - name: Docker login
       env:
@@ -25,17 +48,23 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
+
     - name: Build Docker Image
-      # 2 Para renombrar la rama a latest hago un segundo build con el tag latest (El 2º build usa el caché)
+      # 9 Creo esta variable de entorno
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
+      # 10 Se la pongo aquí
       run: |
-        docker build -t anguiano/docker-graphql:0.0.2 .
+        docker build -t anguiano/docker-graphql:$NEW_VERSION .
         docker build -t anguiano/docker-graphql:latest .
 
     - name: Push Docker Image
-      # 1 Para renombrar la rama a latest hago un segundo push con el tag latest
+      # 11 Creo otra vez esa variable de entorno
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
+      # 12 Se la pongo aquí
       run: |
-        docker push anguiano/docker-graphql:0.0.2
+        docker push anguiano/docker-graphql:$NEW_VERSION
         docker push anguiano/docker-graphql:latest
-
-# 3 Hago un commit "Renombrar a latest" del cambio y se subirán a dockerhub
     
+    # 14 Hago un commit de cambio mayor "major: Una nueva versión totalmente nueva" 
