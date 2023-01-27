@@ -67,4 +67,5 @@ jobs:
         docker push anguiano/docker-graphql:$NEW_VERSION
         docker push anguiano/docker-graphql:latest
     
-    # 14 Hago un commit de cambio mayor "major: Una nueva versión totalmente nueva" 
+    # 14 Hago un commit de cambio mayor "major: Una nueva versión totalmente nueva" - OK tag 1.0.0-prerelease0
+    # 15 Hago un commit de cambio mayor "feat: Una nueva opción agregada" - 
