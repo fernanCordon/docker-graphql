@@ -1,16 +1,6 @@
-<!-- 1 desde DD borro todas las imágenes y contenedores -->
-<!-- 2 docker build -t anguiano/docker-graphql:0.0.1 . -->
-<!-- 3 docker image ls -->
-<!-- 4 docker container run -p 3000:3000 anguiano/docker-graphql:0.0.1  -->
-<!-- 5 Navegador - loclahost:3000/graphql | click en Query your server | run OK -->
-<!-- 6 CTRL+C Si no se puede cerrar abro otra shell -->
-<!-- 7 docker container ls  -->
-<!-- 8 docker container rm -f 5fd -->
-
-<!-- 9 Este build que acabamos de hacer aquí en nuestra máquina es lo que quiero que haga Github en sus servidores -->
-<!-- 10 Voy a Github a editar el archivo docker-image.yml | clicko en el lápiz -->
-
-
+<!-- 1 Voy a actions y veo la última acción que está con el nombre del último commit -->
+<!-- 2 Clicko el él - Y clicko en build: Veo los pasos Checkou code y Docker login-->
+<!-- 3 Entro en Docker login para ver los logs puesto que ahí estarán los echos que puse -->
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
