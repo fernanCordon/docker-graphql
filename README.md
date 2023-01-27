@@ -1,3 +1,16 @@
+<!-- 1 El token debe ser Read & Write (He tenido que crear otro en Dockerhub y cambiarlo en github) -->
+
+<!-- 2 Ya ha subido la imagen a Dockerhub desde Github - OK -->
+
+<!-- 3 docker container run -p 3000:3000 anguiano/docker-graphql:0.0.2 -->
+<!-- 4 Me autentico ya que no me deja: 
+docker login     anguiano / magdanguiano -->
+
+<!-- 5 docker container run -p 3000:3000 anguiano/docker-graphql:0.0.2 -->
+<!-- 6 localhost:3000  OK -->
+<!-- 7 CTRL+C (Como no cierra abro otra shell)-->
+<!-- 8 docker container ls  -->
+<!-- 9 docker container rm -f fe9 -->
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
